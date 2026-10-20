@@ -1,0 +1,72 @@
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Nandhini-CSE12/STUDENT-TODO-LIST.git
+git push -u origin main<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student To-Do List</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><div class="brand-icon">☷</div><div>Student's To-Do List<div style="font-size:11px;font-weight:500;opacity:.78;margin-top:3px">Plan your day. Make progress.</div></div></div>
+    <div class="tagline">Small steps every day<br>lead to big results ✦</div>
+  </header>
+  <div class="progress"><span id="stepProgress"></span></div>
+  <main class="panel">
+    <section class="screen active" id="screen1">
+      <div class="intro-layout">
+        <div><div class="eyebrow">Welcome · Step 1 of 4</div><h1>Make today<br>count.</h1><p>Tell us a little about yourself. We'll help you keep your student life organised, one task at a time.</p><div class="illustration" aria-hidden="true">📚 ✎</div></div>
+        <div>
+          <h2>Your profile</h2><p style="margin-bottom:18px">Let's get your planner ready.</p>
+          <div class="form-grid">
+            <div class="field full"><label for="studentName">Student name</label><input id="studentName" type="text" placeholder="e.g. Vinothini" autocomplete="name"></div>
+            <div class="field"><label for="studentAge">Age</label><input id="studentAge" type="number" min="5" max="100" placeholder="e.g. 19"></div>
+            <div class="field"><label for="learning">Currently learning</label><input id="learning" type="text" placeholder="e.g. Web Development"></div>
+          </div>
+          <div class="actions" style="justify-content:flex-end"><button class="btn primary" id="to2">Next →</button></div>
+        </div>
+      </div>
+    </section>
+    <section class="screen" id="screen2">
+      <div class="eyebrow">Your routine · Step 2 of 4</div><h1>What tasks do you do?</h1><p>Select the kinds of tasks you usually do as a student. You can also add your own tasks on the next page.</p>
+      <div class="choice-grid">
+        <label class="choice"><input type="checkbox" value="Attend classes"> Attend classes</label>
+        <label class="choice"><input type="checkbox" value="Solve coding problems"> Solve coding problems</label>
+        <label class="choice"><input type="checkbox" value="Study / revise"> Study / revise</label>
+        <label class="choice"><input type="checkbox" value="Read books or articles"> Read books or articles</label>
+        <label class="choice"><input type="checkbox" value="Complete assignments"> Complete assignments</label>
+        <label class="choice"><input type="checkbox" value="Work on projects"> Work on projects</label>
+        <label class="choice"><input type="checkbox" value="Prepare for exams"> Prepare for exams</label>
+        <label class="choice"><input type="checkbox" value="Exercise / take a break"> Exercise / take a break</label>
+      </div>
+      <div class="field" style="margin-top:18px"><label for="otherTask">Other task (optional)</label><input id="otherTask" type="text" placeholder="Enter another type of task"></div>
+      <div class="actions"><button class="btn secondary" id="back1">← Back</button><button class="btn primary" id="to3">Next →</button></div>
+    </section>
+    <section class="screen" id="screen3">
+      <div class="eyebrow">Build your list · Step 3 of 4</div><h1 id="taskHeading">Your tasks</h1><p>Add the tasks you want to finish. Tick a task when it's done, or delete any task you no longer need.</p>
+      <div class="add-row"><input id="newTask" type="text" placeholder="Type a task, e.g. Finish C assignment"><button class="btn primary" id="addTask">+ Add task</button></div>
+      <div class="field" style="max-width:240px"><label for="dueDate">Optional due date for new tasks</label><input id="dueDate" type="date"></div>
+      <div class="filters" role="group" aria-label="Filter tasks"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="pending">Pending</button><button class="filter" data-filter="completed">Completed</button></div>
+      <div class="task-list" id="taskList"></div>
+      <div class="actions"><button class="btn secondary" id="back2">← Back</button><button class="btn primary" id="to4">View progress →</button></div>
+    </section>
+    <section class="screen" id="screen4">
+      <div class="eyebrow">Your progress · Step 4 of 4</div><h1 id="greeting">You're making progress!</h1><p>Every task you complete is a step forward. You can still tick tasks or remove tasks below.</p>
+      <div class="stats"><div class="stat"><strong id="totalCount">0</strong><span>Total tasks</span></div><div class="stat"><strong id="doneCount">0</strong><span>Completed</span></div><div class="stat"><strong id="pendingCount">0</strong><span>Pending</span></div></div>
+      <div style="display:flex;justify-content:space-between;gap:10px;align-items:center"><strong>Completion progress</strong><strong id="percent">0%</strong></div><div class="progress-track"><span id="progressBar" style="width:0%"></span></div>
+      <div class="summary-list"><div class="summary-card"><h3>✓ Completed tasks</h3><ul id="completedSummary"></ul></div><div class="summary-card"><h3>◷ Still to do</h3><ul id="pendingSummary"></ul></div></div>
+      <div class="actions"><button class="btn secondary" id="back3">← Edit tasks</button><button class="btn primary" id="startOver">Start a new day ↻</button></div>
+    </section>
+  </main>
+  <footer>Made for students · Your tasks stay in this browser on this device.</footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>
